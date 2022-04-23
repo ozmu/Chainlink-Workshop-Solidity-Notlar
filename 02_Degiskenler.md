@@ -104,6 +104,9 @@ string storage ornekMesaj; // Bu tanımlamada "ornekMesaj" isimli değişkenin s
 
 # Erişim
 
-public private vs.
+Değişkene nereden erişilebileceğini belirler. **public** ise kontrat dışından da erişilebilirken, ***private** ise yalnızca kontrat içinden erişilir.
 
-Default getter methodu
+```javascript
+string public mesaj = "Hello World"; // Bu tanımlamada "mesaj" isimli değişkenin herkese açık olacağını belirttik
+uint private sayi = 123; // Bu tanımlamada "sayi" isimli değişkene yalnızca kontrat içinden erişilebileceğini belirttik
+```
