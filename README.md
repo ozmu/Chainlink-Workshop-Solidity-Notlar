@@ -14,9 +14,9 @@ Başlangıçta "Web3.0 nedir? Günümüzdeki sistemler (Web2.0) ile arasındaki 
 |[Örnek Uygulama](04_OrnekUygulama.md)| Eğitim kapsamında yapılan örnek kitlesel fonlama uygulaması anlatılmıştır ve yazılan akıllı kontrat kodu açıklanmıştır. |
 
 
-# Kişiler
+# Katkıda bulunmak
 
-Eğitim için öncelikle İrfan Önk olmak üzere, düzenleyenlere de teşekkür ederiz.
+Eğitim için öncelikle İrfan Önk olmak üzere, düzenleyenlere de teşekkür ederiz. Bu repo, eğitime dair döküman olması amacıyla hazırlanmıştır. Eksik veya hatalı gördüğünüz yerleri düzeltip pull request gönderebilirsiniz.
 
 * Eğitmen
     * İrfan Önk [![Twitter URL](https://img.shields.io/twitter/url/https/twitter.com/bukotsunikki.svg?style=social&label=@irfan11033699)](https://twitter.com/irfan11033699)
