@@ -2,7 +2,9 @@
 
 Bu belgede, Solidity'deki fonksiyon tanımlama ve veri tipleri anlatılacaktır.
 
+
 ## ****Fonksiyon Tanımlama****
+
 
 Solidity dilinde fonksiyon tanımı aşağıdaki gibidir:
 
@@ -13,8 +15,10 @@ Solidity dilinde fonksiyon tanımı aşağıdaki gibidir:
 
 Yukarıda bulunan `approveRequest` fonksiyonu  uint ve string türünde 2 değişken alıyor. 
 
+
 > ***Not:** Değişkenlerimizin isimleri görüldüğü üzere `_index` ve `_name` olarak tanımlanmıştır. Değişken isminde alt çizgi yani `_` olmasının nedeni, fonksiyon içerisinde tanımlanan değerler ile global tanımladığımız değişkenlerin isimlerinin birbirleri ile karışmaması içindir.*
 >
+
 
 Fonksiyonumuzda string değişkeni tanımlarken  `_name` değişkeninin `memory` 'de tutulması gerektiğini belirttik. Bunun nedeni arrayler, stringler, structlar ve mappingler gibi bütün referans tipleri için bu bilginin gerekli olması diyebiliriz. 
 
@@ -30,7 +34,9 @@ Fonksiyonu çağırmak için :
 approveRequest(2,"SolidityDev");
 ```
 
+
 ## ****Private / Public Functions****
+
 
 ```solidity
     function approveRequest (uint _index, string memory _name)  public{
@@ -57,7 +63,9 @@ Yukarıda tanımladığımız `_addNumbersToArray` fonksiyonu `private` anahtar 
 
 Gördüğünüz üzere fonksiyon parametrelerinde olduğu gibi private fonksiyonlarının isimlerinin başına da alt çizgi (`_`) koyulması ortak görüş(convention) olarak benimsenmiştir.
 
+
 ### ****Return Değerleri****
+
 
 Fonksiyonumuzdan bir değer döndürmek istiyorsak, aşağıdaki gibi belirtmemiz gerekmektedir:
 
@@ -74,10 +82,12 @@ Solidity'de fonksiyon tanımlarında, hangi değeri döndürmek istiyorsak, o de
 
 ## ****Handling Multiple Return Values****
 
+
 Fonksiyonları tanımlarken birden fazla değer dönmemiz gereken durumlar ile karşılaşabiliriz. Bu gibi durumlarda yapabileceğimiz bazı seçenekler aşağıdaki gibidir:
 
 
 # Fonksiyon tanımı: 
+
 
 ```solidity
 function multipleReturns() internal returns(uint a, uint b, uint c) {
@@ -85,7 +95,9 @@ function multipleReturns() internal returns(uint a, uint b, uint c) {
 }
 ```
 
+
 # Fonksiyonu çağırırken aşağıdaki gibi çağırmalıyız. 
+
 
 ```solidity
 function processMultipleReturns() external {
@@ -107,7 +119,9 @@ function getLastReturnValue() external {
 }
 ```
 
+
 ### ****Internal ve External****
+
 
 Fonksiyon görünürlüğünde belirttiğimiz `public` ve `private` anahtar kelimelerine ek olarak, Solidity fonksiyonlar için 2 farklı görünebilirlik tipine sahiptir: `internal` ve `external`.
 
@@ -141,6 +155,7 @@ contract NewContract is Contributor {
 
 ### ****Pure ve View****
 
+
 ```solidity
 string greeting = "Merhaba!";
 
@@ -171,21 +186,24 @@ Yukarıdaki fonksiyon uygulamanın durumunu bile okumuyor, sadece fonksiyona gö
 >
 
 
-# **Saving Gas With 'View' Functions**
+# **'View' Fonksiyonu ile gas fee'den tasarruf etmek**
+
 
 ## **View functions don't cost gas**
 
-`view` functions don't cost any gas when they're called externally by a user.
 
-This is because `view` functions don't actually change anything on the blockchain – they only read the data. So marking a function with `view` tells `web3.js` that it only needs to query your local Ethereum node to run the function, and it doesn't actually have to create a transaction on the blockchain (which would need to be run on every single node, and cost gas).
+`view` fonksiyonları external(harici) bir kullanıcı tarafından çağırıldığında herhangi bir gas fee alınmaz.
 
-We'll cover setting up web3.js with your own node later. But for now the big takeaway is that you can optimize your DApp's gas usage for your users by using read-only `external view` functions wherever possible.
+Çünkü`view` fonksiyonları blockchain üzerinde herhangi bir değişiklik yapmazlar – sadece veriyi okurlar. Yani bir fonksiyonu `view` ile işaretlemek, `web3.js` e bu fonksiyonu çalıştırmak için sadece local Etherium makinemi sorgulamasının yeterli olduğunu söyler, ve aslında blockchain üzerinde bir transaction oluşturulmuyor(Eğer oluşturulsaydı herbir node üzerinde çalışması gerekirdi ve gas fee kesilirdi).
 
-> Note: If a view function is called internally from another function in the same contract that is not a view function, it will still cost gas. This is because the other function creates a transaction on Ethereum, and will still need to be verified from every node. So view functions are only free when they're called externally.
+> Not: Eğer view fonksiyonu, aynı kontrat içinde bulunan ve view fonksiyonu olmayan bir fonksiyon tarafından çağırılırsa, o zaman gas fee alınır. Bunun nedeni view olmayan fonksiyon, ethereum ağında transaction oluşturur va her node tarafından verify edilmesi gerekir. 
+Özetle  view fonksiyonlaro sadece external olarak çağırılırlarsa ücretsizdirler.
 >
 
+
 ### ****Fonksiyon Değiştiriciler (Function Modifiers)****
-    
+
+
 ```solidity
 modifier onlyOwner(){
     require(owner == msg.sender,'You are not the owner!');
@@ -203,23 +221,32 @@ function addBalance() public payable onlyOwner{
 
 ## **Function modifiers with arguments**
 
-Previously we looked at the simple example of `onlyOwner`. But function modifiers can also take arguments. For example:
+
+Fonksiyon modifierları aynı zamanda argüman da alabilirler. Örnek olarak:
 
 ```solidity
-// A mapping to store a user's age:mapping (uint => uint) public age;
+// Kullanıcının yaşını tutmak için bir mapping
 
-// Modifier that requires this user to be older than a certain age:modifier olderThan(uint _age, uint _userId) {
+mapping (uint => uint) public age;
+
+// Kullanıcının belirli bir yaşın üzerinde olduğunu kontrol eden modifier:
+modifier olderThan(uint _age, uint _userId) {
   require(age[_userId] >= _age);
   _;
 }
 
-// Must be older than 16 to drive a car (in the US, at least).// We can call the `olderThan` modifier with arguments like so:function driveCar(uint _userId) public olderThan(16, _userId) {
+// Araba kullanabilmek için 18 yaşından büyük olmalı. 
+// `olderThan` modifier'ını argüman kullanarak şu şekilde çağırabiliriz:
+
+function driveCar(uint _userId) public olderThan(18, _userId) {
 // Some function logic
 }
 
 ```
 
+
 ## **Constructor fonksiyonu**
+
 
 Constructor fonksiyonu, kontrat deploy edilirken, değişkenlere başlangıç değerleri vermek için kullanılır.
 Aşağıdaki örnekte constructor, kontratın owner değişkeninini, kontratı deploy eden kişinin adresine eşitliyor. `addBalance` fonksiyonunda kullanılan `onlyOwner` modifierı sayesinde de eğer fonksiyonu çağıran kişi owner değil ise, `Bu kontratın sahibi değilsiniz!` uyarısı verir.
@@ -243,7 +270,9 @@ contract ConstructorContractSample{
 }
 ```
 
+
 ### ****Assert() ve Require()****
+
 
 Solidityde bazı durumları kontrol etmemiz gerekebilir. Yukarıdaki kodda `onlyOwner` modifierı içinde bulunan require fonksiyonu sayesinde sadece belirli durumların sağlanması koşulu ile o fonksiyonun çalışabileceğini söylemiş oluyoruz aslında. 
 
