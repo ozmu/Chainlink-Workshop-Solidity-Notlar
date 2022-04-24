@@ -16,11 +16,10 @@
 - [x]  Sadece bağış yapan kişilerin oy vermesini sağlayacak kontrol mekanizması eklemek
 - [x]  Eğer onay sayısı toplam bağışçı sayısının yarısı veya daha fazlası ise bu harcama isteğini kabul edecek fonksiyonu oluşturmak
 
+### Kaynak Kod
 
-### Kaynak Kod
- 
 Projenin kaynak koduna [examples/Campaign.sol](examples/Campaign.sol) adresinden erişebilirsiniz.
-#### **Campaign.sol**
+#### **`Campaign.sol`**
 ```javascript
 // SPDX-License-Identifier: GPL-3.0
 
