@@ -104,7 +104,7 @@ string storage ornekMesaj; // Bu tanımlamada "ornekMesaj" isimli değişkenin s
 
 # Erişim
 
-Değişkene nereden erişilebileceğini belirler. **public** ise kontrat dışından da erişilebilirken, ***private** ise yalnızca kontrat içinden erişilir.
+Değişkene nereden erişilebileceğini belirler. **public** ise kontrat dışından da erişilebilirken, **private** ise yalnızca kontrat içinden erişilir.
 
 ```javascript
 string public mesaj = "Hello World"; // Bu tanımlamada "mesaj" isimli değişkenin herkese açık olacağını belirttik
