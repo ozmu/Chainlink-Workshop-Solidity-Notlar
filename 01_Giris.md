@@ -43,7 +43,7 @@ Eğitim boyunca geliştirme yaptığımız ve tüm örnekleri test ettiğimiz or
 ## Örnek Solidity Kodu
 
 #### **`Ornek.sol`**
-```javascript
+```solidity
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity ^0.8.0;
 
@@ -54,6 +54,8 @@ contract Ornek {
 
 Kodun ilk satırı lisans belirteci ve ikinci satırı da hangi solidity compiler versiyonunu kullanacağımızı belirtir.\
 Eğitimde 0.8.0 versiyonu kullanılmıştır.
+
+**Not:** Yorum satırı söz dizimi javascript gibi diller ile aynıdır. **//** ile tek satırlık yorum satırları yapılırken çoklu yorum satırı için **/\* -- \*/** kullanılmaktadır.
 
 ## Remix İlk Örnek
 

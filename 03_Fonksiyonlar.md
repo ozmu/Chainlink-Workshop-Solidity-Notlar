@@ -9,8 +9,8 @@ Bu belgede, Solidity'deki fonksiyon tanımlama ve veri tipleri anlatılacaktır.
 Solidity dilinde fonksiyon tanımı aşağıdaki gibidir:
 
 ```solidity
-    function approveRequest (uint _index, string memory _name) {
-    }
+function approveRequest (uint _index, string memory _name) {
+}
 ```
 
 Yukarıda bulunan `approveRequest` fonksiyonu  uint ve string türünde 2 değişken alıyor. 
@@ -39,8 +39,8 @@ approveRequest(2,"SolidityDev");
 
 
 ```solidity
-    function approveRequest (uint _index, string memory _name)  public{
-    }
+function approveRequest (uint _index, string memory _name)  public{
+}
 ```
 
 Farkedildiği üzere fonksiyonumuzun görünürlüğünü `public` olarak belirttik. Bu sayede farklı contratlardan veya frontend servisleri üzerinden oluşturduğumuz `approveRequest` fonkiyonuna ulaşabiliriz.
@@ -104,7 +104,7 @@ function processMultipleReturns() external {
   uint a;
   uint b;
   uint c;
-// Bu durumda eğer return edilen bütün değerleri kullanmak istiyorsak: 
+  // Bu durumda eğer return edilen bütün değerleri kullanmak istiyorsak: 
   (a, b, c) = multipleReturns();
 }
 ```
@@ -114,7 +114,7 @@ function processMultipleReturns() external {
 ```solidity
 function getLastReturnValue() external {
   uint c;
-// Diğer değerleri boş bırakabiliriz:
+  // Diğer değerleri boş bırakabiliriz:
   (,,c) = multipleReturns();
 }
 ```
@@ -145,7 +145,7 @@ contract NewContract is Contributor {
 
   function eatWithBacon() public returns (string memory) {
     contribution += msg.value;
-// Fonksiyonumuzu internal olarak belirttiğimiz için, farklı bir kontrattan(inherit edilmiş) çağırabiliriz.
+    // Fonksiyonumuzu internal olarak belirttiğimiz için, farklı bir kontrattan(inherit edilmiş) çağırabiliriz.
     contribute();
   }
 }

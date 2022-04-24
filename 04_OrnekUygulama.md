@@ -20,7 +20,7 @@
 
 Projenin kaynak koduna [examples/Campaign.sol](examples/Campaign.sol) adresinden erişebilirsiniz.
 #### **`Campaign.sol`**
-```javascript
+```solidity
 // SPDX-License-Identifier: GPL-3.0
 
 pragma solidity ^0.8.0; // Hangi versiyonu kullandığımızı belirtiyoruz.
